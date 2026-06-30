@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Professores Virtuais - Medicina</title>
+    <style>
+        :root {
+            --primary-color: #0d6efd; /* Azul médico padrão */
+            --primary-hover: #0b5ed7;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+            --info-bg: #e2f3f5;
+            --info-text: #055160;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho e Informações */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background-color: var(--info-bg);
+            color: var(--info-text);
+            border-left: 5px solid #0dcaf0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-box p {
+            margin-bottom: 1rem;
+        }
+        
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        /* Grid de Disciplinas */
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Estilo dos Botões / Cards */
+        .module-btn {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+
+        .module-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(13, 110, 253, 0.15);
+            border-color: var(--primary-hover);
+            color: var(--primary-color);
+        }
+
+        .module-btn .icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            background-color: #f8f9fa;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        /* Container do Menu Suspenso (Dropdown) */
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            margin-left: 2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .dropdown-content.show {
+            display: flex;
+        }
+
+        /* Botões Secundários (Provas) */
+        .sub-btn {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .sub-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .dropdown-icon {
+            margin-left: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .module-btn.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .info-box { padding: 1rem; }
+            .module-btn { font-size: 1rem; padding: 1rem; }
+            .dropdown-content { margin-left: 1rem; padding-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Portal de Estudos em Medicina</h1>
+        </header>
+
+        <div class="info-box">
+            <p>👨‍⚕️ <strong>Bem-vindo ao portal de Professores Virtuais!</strong> Aqui você tem acesso integral ao nosso projeto. Sinta-se à vontade para acessar cada módulo e usar o chat para <strong>tirar dúvidas, aprofundar discussões de casos e produzir questionários</strong> para seus estudos.</p>
+            
+            <p>🧠 Nossos professores virtuais estão em <span class="highlight">evolução permanente</span>. Eles são continuamente alimentados com dados pessoais e acadêmicos de cada docente. Nosso objetivo é chegar o mais próximo possível do raciocínio clínico individual de cada um, criando um <strong>"Gêmeo Cognitivo Virtual"</strong> (que terá sua identidade final definida em breve).</p>
+            
+            <p>📚 <em>Por agora, a base de conhecimento (ementas e slides de aulas) foi gentilmente doada pela turma T5.</em></p>
+        </div>
+
+        <div class="modules-grid">
+            
+            <a href="https://chatgpt.com/g/g-p-6a43e7e999308191bb19ed5126b9feb5-dr-prof-virtual-iesc5/project" target="_blank" class="module-btn">
+                <span class="icon">📊</span>
+                Dr. Prof. Virtual - IESC5
+            </a>
+
+            <a href="https://chatgpt.com/g/g-p-6a43e66f3e388191b3ee59c72d134fdf-prof-virtual-farmacologia-medica-2/project" target="_blank" class="module-btn">
+                <span class="icon">💊</span>
+                Dr. Prof. Virtual - Farmacologia Médica 2
+            </a>
+
+            <div class="dropdown-container">
+                <button class="module-btn" onclick="toggleDropdown(this)">
+                    <span class="icon">🩺</span>
+                    Dr. Prof. Virtual - Clínica Médica 1
+                    <span class="dropdown-icon">▼</span>
+                </button>
+                
+                <div class="dropdown-content" id="clinicaMedicaMenu">
+                    <a href="https://chatgpt.com/g/g-p-6a43e2370d7881919112d1eb7e957c43-prof-virtual-clinica-medica-1-pr1/project" target="_blank" class="sub-btn">
+                        📝 Conteúdo Prova 1 (PR1)
+                    </a>
+                    <a href="https://chatgpt.com/g/g-p-6a43e2ce81a0819199080ec89b6df7a9-dr-prof-virtual-clinica-medica-1-pr2/project" target="_blank" class="sub-btn">
+                        📝 Conteúdo Prova 2 (PR2)
+                    </a>
+                </div>
+            </div>
+
+            <a href="https://chatgpt.com/g/g-p-6a43d8e6ad108191be432a6f95226763-dr-prof-virtual-clinica-cirurgica-1/project" target="_blank" class="module-btn">
+                <span class="icon">🔪</span>
+                Dr. Prof. Virtual - Clínica Cirúrgica 1
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(buttonElement) {
+            // Alterna a classe ativa do botão para girar a setinha
+            buttonElement.classList.toggle("active");
+            
+            // Pega o menu de conteúdo logo após o botão
+            var content = buttonElement.nextElementSibling;
+            
+            // Alterna a exibição do menu
+            if (content.classList.contains("show")) {
+                content.classList.remove("show");
+            } else {
+                content.classList.add("show");
+            }
+        }
+    </script>
+
+</body>
+</html>
